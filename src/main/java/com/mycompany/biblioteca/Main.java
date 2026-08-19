@@ -61,4 +61,28 @@ public class Main {
 
     System.out.println("Cliente no encontrado.");
     }
+    
+    static void actualizarCliente() {
+    System.out.print("Ingrese el ID del cliente a actualizar: ");
+    int id = sc.nextInt();
+    sc.nextLine();
+
+    for (Cliente cliente : clientes) {
+        if (cliente.getId() == id) {
+            System.out.print("Ingrese el nuevo nombre: ");
+            String nombre = sc.nextLine();
+
+            System.out.print("Ingrese el nuevo teléfono: ");
+            String telefono = sc.nextLine();
+
+            cliente.setNombre(nombre);
+            cliente.setTelefono(telefono);
+
+            System.out.println("Cliente actualizado correctamente.");
+            return;
+            }
+        }
+
+    System.out.println("Cliente no encontrado.");
+    }
 }
