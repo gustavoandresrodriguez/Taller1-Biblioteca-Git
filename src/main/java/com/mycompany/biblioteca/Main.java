@@ -143,5 +143,29 @@ public class Main {
         }
     }
     return null;
-}
+    }
+    
+    public static void actualizarLibro() {
+    System.out.print("Ingrese el código del libro a actualizar: ");
+    String codigo = sc.nextLine();
+
+    Libro libro = buscarLibro(codigo);
+    if (libro == null) {
+        System.out.println("Libro no encontrado.");
+        return;
+    }
+
+    System.out.print("Nuevo título: ");
+    String titulo = sc.nextLine();
+    System.out.print("Nuevo año de publicación: ");
+    String anio = sc.nextLine();
+    System.out.print("Nuevo autor: ");
+    String autor = sc.nextLine();
+
+    libro.setTitulo(titulo);
+    libro.setAnioPublicacion(anio);
+    libro.setAutor(autor);
+
+    System.out.println("Libro actualizado correctamente.");
+    }
 }
