@@ -8,6 +8,8 @@ public class Main {
     static ArrayList<Cliente> clientes = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
+    static ArrayList<Libro> libros = new ArrayList<>();
+    
     public static void main(String[] args) {
         // Aquí irá el menú (Fase 8)
     }
@@ -99,5 +101,27 @@ public class Main {
         }
 
     System.out.println("Cliente no encontrado.");
+    }
+    
+    public static void crearLibro() {
+    System.out.println("\n--- Registrar nuevo libro ---");
+    System.out.print("Código: ");
+    String codigo = sc.nextLine();
+
+    if (buscarLibro(codigo) != null) {
+        System.out.println("Ya existe un libro con ese código.");
+        return;
+    }
+
+    System.out.print("Título: ");
+    String titulo = sc.nextLine();
+    System.out.print("Año de publicación: ");
+    String anio = sc.nextLine();
+    System.out.print("Autor: ");
+    String autor = sc.nextLine();
+
+    Libro nuevo = new Libro(codigo, titulo, anio, autor);
+    libros.add(nuevo);
+    System.out.println("Libro registrado con éxito.");
     }
 }
