@@ -224,5 +224,25 @@ public class Main {
     libro.setDisponible(false);
 
     System.out.println("Préstamo registrado con éxito.");
-}
+    }
+    
+    public static void devolucionPrestamo() {
+    System.out.println("\n--- Registrar devolución ---");
+    System.out.print("ID del préstamo: ");
+    String idPrestamo = sc.nextLine();
+
+    for (Prestamo p : prestamos) {
+        if (p.getIdPrestamo().equalsIgnoreCase(idPrestamo)) {
+            if (p.getEstado().equals("DEVUELTO")) {
+                System.out.println("Este préstamo ya fue devuelto.");
+                return;
+            }
+            p.setEstado("DEVUELTO");
+            p.getLibro().setDisponible(true);
+            System.out.println("Devolución registrada con éxito.");
+            return;
+        }
+    }
+    System.out.println("Préstamo no encontrado.");
+    }
 }
