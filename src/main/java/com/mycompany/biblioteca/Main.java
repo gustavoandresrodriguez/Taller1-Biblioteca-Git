@@ -124,4 +124,15 @@ public class Main {
     libros.add(nuevo);
     System.out.println("Libro registrado con éxito.");
     }
+    
+    public static void listarLibros() {
+    System.out.println("\n--- Listado de libros ---");
+    if (libros.isEmpty()) {
+        System.out.println("No hay libros registrados.");
+        return;
+        }
+    for (Libro l : libros) {
+        System.out.println(l);
+        }
+    }
 }
