@@ -10,6 +10,8 @@ public class Main {
 
     static ArrayList<Libro> libros = new ArrayList<>();
     
+    static ArrayList<Prestamo> prestamos = new ArrayList<>();
+    
     public static void main(String[] args) {
         // Aquí irá el menú (Fase 8)
     }
