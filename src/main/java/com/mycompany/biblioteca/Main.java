@@ -28,4 +28,20 @@ public class Main {
 
         System.out.println("Cliente creado correctamente.");
     }
+    
+    static void listarClientes() {
+    if (clientes.isEmpty()) {
+        System.out.println("No hay clientes registrados.");
+        return;
+    }
+
+    System.out.println("Lista de clientes:");
+
+    for (Cliente cliente : clientes) {
+        System.out.println("ID: " + cliente.getId());
+        System.out.println("Nombre: " + cliente.getNombre());
+        System.out.println("Teléfono: " + cliente.getTelefono());
+        System.out.println("----------------------");
+        }
+    }
 }
