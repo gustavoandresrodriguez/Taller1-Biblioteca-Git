@@ -135,4 +135,13 @@ public class Main {
         System.out.println(l);
         }
     }
+    
+    public static Libro buscarLibro(String codigo) {
+    for (Libro l : libros) {
+        if (l.getCodigo().equalsIgnoreCase(codigo)) {
+            return l;
+        }
+    }
+    return null;
+}
 }
