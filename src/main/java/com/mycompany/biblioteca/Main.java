@@ -2,6 +2,7 @@ package com.mycompany.biblioteca;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.time.LocalDate;
 
 public class Main {
 
@@ -184,4 +185,44 @@ public class Main {
     libros.remove(libro);
     System.out.println("Libro eliminado correctamente.");
     }
+    
+    public static void crearPrestamo() {
+    System.out.println("\n--- Registrar nuevo préstamo ---");
+    System.out.print("ID del préstamo: ");
+    String idPrestamo = sc.nextLine();
+
+    System.out.print("ID del cliente: ");
+    int idCliente = sc.nextInt();
+    sc.nextLine();
+
+    Cliente cliente = null;
+    for (Cliente c : clientes) {
+        if (c.getId() == idCliente) {
+            cliente = c;
+            break;
+        }
+    }
+    if (cliente == null) {
+        System.out.println("Cliente no encontrado.");
+        return;
+    }
+
+    System.out.print("Código del libro: ");
+    String codigoLibro = sc.nextLine();
+    Libro libro = buscarLibro(codigoLibro);
+    if (libro == null) {
+        System.out.println("Libro no encontrado.");
+        return;
+    }
+    if (!libro.isDisponible()) {
+        System.out.println("El libro no está disponible actualmente.");
+        return;
+    }
+
+    Prestamo prestamo = new Prestamo(idPrestamo, cliente, libro, LocalDate.now());
+    prestamos.add(prestamo);
+    libro.setDisponible(false);
+
+    System.out.println("Préstamo registrado con éxito.");
+}
 }
